@@ -1,1 +1,1 @@
-## Midterm: Basic Inventory Management System:
+## Midterm: Basic Inventory Management System
