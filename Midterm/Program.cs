@@ -53,7 +53,7 @@ public class InventoryItem
     // Print item details
     public void PrintDetails()
     {
-        Console.WriteLine(string.Format("{0, -20} {1, -10} {2, -10} {3, -5}", ItemName, ItemId, Price, QuantityInStock));
+        Console.WriteLine(string.Format("{0, -20} | {1, -10} | {2, -10} | {3, -15}", ItemName, ItemId, Price, QuantityInStock));
     }
 }
 
@@ -81,9 +81,9 @@ public class InventoryManager
     public void PrintAllItems()
     {
         // Print a header for the inventory details.
-        Console.WriteLine("----------------------------------------------------------");
-        Console.WriteLine(string.Format("{0, -20} {1, -10} {2, -10} {3, -5}", "ItemName", "ItemId", "Price", "QuantityInStock"));
-        Console.WriteLine("----------------------------------------------------------");
+        Console.WriteLine("------------------------------------------------------------------");
+        Console.WriteLine(string.Format("{0, -20} | {1, -10} | {2, -10} | {3, -15}", "ItemName", "ItemId", "Price", "QuantityInStock"));
+        Console.WriteLine("------------------------------------------------------------------");
 
         // Loop through each item and print its details.
         for (int i = 0; i < itemCount; i++)
@@ -92,7 +92,7 @@ public class InventoryManager
         }
 
         // Print a footer for the inventory details.
-        Console.WriteLine("----------------------------------------------------------");
+        Console.WriteLine("------------------------------------------------------------------");
     }
 
     /// <summary>
