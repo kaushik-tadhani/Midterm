@@ -60,6 +60,6 @@ class Program
         // 3. Restock an item and print the updated details.
         // 4. Check if an item is in stock and print a message accordingly.
 
-        // Note: Students should fill in the 'TODO' sections.
+       
     }
 }
