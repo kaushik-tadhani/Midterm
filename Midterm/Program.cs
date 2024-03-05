@@ -57,32 +57,55 @@ public class InventoryItem
     }
 }
 
+/// <summary>
+/// InventoryManager to manage inventory items.
+/// </summary>
 public class InventoryManager 
 {
+    // Private fields to store the array of InventoryItem objects and the count of items.
     private InventoryItem[] items = new InventoryItem[10];
     private int itemCount = 0;
 
+    /// <summary>
+    /// Method to add an inventory item to the inventory manager.
+    /// </summary>
+    /// <param name="inventoryItem">Inventory item class object</param>
     public void AddItems(InventoryItem inventoryItem)
     {
         items[itemCount++] = inventoryItem;
     }
 
+    /// <summary>
+    /// Method to print details of all items in the inventory.
+    /// </summary>
     public void PrintAllItems()
     {
+        // Print a header for the inventory details.
         Console.WriteLine("----------------------------------------------------------");
         Console.WriteLine(string.Format("{0, -20} {1, -10} {2, -10} {3, -5}", "ItemName", "ItemId", "Price", "QuantityInStock"));
         Console.WriteLine("----------------------------------------------------------");
+
+        // Loop through each item and print its details.
         for (int i = 0; i < itemCount; i++)
         {
             items[i].PrintDetails();
         }
+
+        // Print a footer for the inventory details.
         Console.WriteLine("----------------------------------------------------------");
     }
 
+    /// <summary>
+    /// Method to update the price of an item given its ID.
+    /// </summary>
+    /// <param name="itemId">Inventory item id</param>
+    /// <param name="newPrice">New price for the inventory item</param>
     public void UpdateItemPrice(int itemId, double newPrice)
     {
+        // Loop through items to find the item with the given ID.
         for (int i = 0; i < itemCount; i++)
         {
+            // If the item ID matches, update its price and exit the loop.
             if (items[i].ItemId == itemId)
             {
                 items[i].UpdatePrice(newPrice);
@@ -91,10 +114,17 @@ public class InventoryManager
         }
     }
 
+    /// <summary>
+    /// Method to sell a quantity of an item given its ID.
+    /// </summary>
+    /// <param name="itemId">Inventory item id</param>
+    /// <param name="quantity">Quantity for sell</param>
     public void SellItem(int itemId, int quantity)
     {
+        // Loop through items to find the item with the given ID.
         for (int i = 0; i < itemCount; i++)
         {
+            // If the item ID matches, sell the specified quantity of the item and exit the loop.
             if (items[i].ItemId == itemId)
             {
                 items[i].SellItem(quantity);
@@ -103,10 +133,17 @@ public class InventoryManager
         }
     }
 
+    /// <summary>
+    /// Method to restock a quantity of an item given its ID.
+    /// </summary>
+    /// <param name="itemId">Inventory item id</param>
+    /// <param name="quantity">Quantity for restock</param>
     public void RestockItem(int itemId, int quantity)
     {
+        // Loop through items to find the item with the given ID.
         for (int i = 0; i < itemCount; i++)
         {
+            // If the item ID matches, restock the specified quantity of the item and exit the loop.
             if (items[i].ItemId == itemId)
             {
                 items[i].RestockItem(quantity);
@@ -115,10 +152,16 @@ public class InventoryManager
         }
     }
 
+    /// <summary>
+    /// Method to check the stock availability of an item given its ID.
+    /// </summary>
+    /// <param name="itemId">Inventory item id</param>
     public void CheckStockAvailability(int itemId)
     {
+        // Loop through items to find the item with the given ID.
         for (int i = 0; i < itemCount; i++)
         {
+            // If the item ID matches, check if it's in stock and print a message accordingly.
             if (items[i].ItemId == itemId)
             {
                 if (items[i].IsInStock())
@@ -129,6 +172,7 @@ public class InventoryManager
                 {
                     Console.WriteLine("{0} is out of stock.", items[i].ItemName);
                 }
+                break;
             }
         }
     }
