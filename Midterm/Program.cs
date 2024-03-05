@@ -1,4 +1,6 @@
-﻿public class InventoryItem
+﻿using System.Diagnostics;
+
+public class InventoryItem
 {
     // Properties
     public string ItemName { get; set; }
@@ -9,7 +11,10 @@
     // Constructor
     public InventoryItem(string itemName, int itemId, double price, int quantityInStock)
     {
-        // TODO: Initialize the properties with the values passed to the constructor.
+        ItemId = itemId;
+        ItemName = itemName;
+        Price = price;
+        QuantityInStock = quantityInStock;
     }
 
     // Methods
@@ -37,29 +42,42 @@
     public bool IsInStock()
     {
         // TODO: Return true if the item is in stock (quantity > 0), otherwise false.
+
+        return false;
     }
 
     // Print item details
     public void PrintDetails()
     {
-        // TODO: Print the details of the item (name, id, price, and stock quantity).
+        Console.WriteLine(string.Format("{0, -20} {1, -10} {2, -10} {3, -5}", ItemName, ItemId, Price, QuantityInStock));
     }
 }
 class Program
 {
     static void Main(string[] args)
     {
-        // Creating instances of InventoryItem
-        InventoryItem item1 = new InventoryItem("Laptop", 101, 1200.50, 10);
-        InventoryItem item2 = new InventoryItem("Smartphone", 102, 800.30, 15);
+
+        InventoryItem[] inventoryItems = new InventoryItem[] 
+        {
+            new InventoryItem("Laptop", 101, 1200.50, 10),
+            new InventoryItem("Smartphone", 102, 800.30, 15)
+        };
 
         // TODO: Implement logic to interact with these objects.
         // Example tasks:
         // 1. Print details of all items.
+
+        Console.WriteLine(string.Format("{0, -20} {1, -10} {2, -10} {3, -5}", "ItemName", "ItemId", "Price", "QuantityInStock"));
+        Console.WriteLine("----------------------------------------------------------");
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            inventoryItems[i].PrintDetails();
+        }
+
         // 2. Sell some items and then print the updated details.
         // 3. Restock an item and print the updated details.
         // 4. Check if an item is in stock and print a message accordingly.
 
-       
+
     }
 }
